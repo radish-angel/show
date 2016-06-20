@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>使用react实现前后端的数据绑定</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<script></script>
+		<link rel="stylesheet" href="lib/swiper-3.3.1.min.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	    <script type="text/javascript" src="lib/swiper-3.3.1.min.js" ></script>
+	    <script>
+			window.onload=function(){
+				//1.首次加载的时候 调用动态设置rem的api
+				setRemSize();
+				
+				//2.当用户企图更改浏览器宽度 自动获取屏幕宽度 在计算rem赋值给根元素里面的font-size
+				window.addEventListener("resize",setRemSize,false);
+				function setRemSize(){
+				//1.在任何尺寸中都可以获得rem值
+				//获得屏幕的宽度----获取到了rem值    rem=屏幕宽度/6.4+"px"
+				var _clientWidth=document.documentElement.clientWidth/6.4+"px";
+				console.log(_clientWidth);
+				//将得到的rem值赋值给根元素的font-size
+				document.documentElement.style.fontSize=_clientWidth;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript" src="js/app.js" ></script>
+	</body>
+</html>
